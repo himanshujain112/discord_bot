@@ -1,12 +1,8 @@
 import discord
 from discord.ext import commands
-from discord.ext import slash_commands
-import os
-from dotenv import load_dotenv
+from config import DISCORD_TOKEN
 from weather import get_weather
-# Load environment variables
-load_dotenv()
-TOKEN = os.getenv("TOKEN")
+
 
 # Enable required intents
 intents = discord.Intents.default()
@@ -38,4 +34,4 @@ async def weather(ctx, *, city: str = None):
     else:
         await ctx.send(f"I can't find your city, is this **{city}** place even exists> 🤔")
 
-bot.run(TOKEN)
+bot.run(DISCORD_TOKEN)
